@@ -10,11 +10,17 @@ app.use(bodyParser.json());
 app.getJson('/code', async (req, res) => {
   const { code } = req.query;
   if (!code || typeof code !== 'string') {
-    throw new JsonErrorResponse({ error: 'Missing code' }, { statusCode: 501 });
+    res.redirect('/error.html');
+    return { error: 'Invalid code' };
   }
-  const url = await generateCoupon(code, true);
-  res.redirect(url);
-  return { url };
+  try {
+    const url = await generateCoupon(code, true);
+    res.redirect(url);
+    return { url };
+  } catch (e) {
+    res.redirect('/error.html');
+    console.error(e);
+  }
 });
 
 app.use(express.static('public'));
