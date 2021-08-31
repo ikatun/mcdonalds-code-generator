@@ -31,7 +31,7 @@ async function scrollAndClick(page: puppeteer.Page, selector: string) {
 }
 
 export async function generateCoupon(code: string, headless = true) {
-  const browser = await puppeteer.launch({ headless } );
+  const browser = await puppeteer.launch({ headless, args: ['--no-sandbox','--disable-setuid-sandbox'] });
   try {
     const page = await browser.newPage();
     await page.goto('https://mcdonalds.hr/upitnik', {timeout: 1000 * 60 * 5});
@@ -39,7 +39,7 @@ export async function generateCoupon(code: string, headless = true) {
     await page.keyboard.type(code);
     const [start] = await forever(() => page.$x("//button[contains(., 'Start')]"));
     await start.click();
-    await page.waitForXPath("//span[contains(., 'Vrlo zadovoljan')]", {timeout: 1000 * 60 * 5});
+    await page.waitForXPath("//span[contains(., 'Vrlo zadovoljan')]", {timeout: 1000 * 60});
     await delay(3000);
 
     await scrollAndClick(page, "//span[contains(., 'Vrlo zadovoljan')]");
