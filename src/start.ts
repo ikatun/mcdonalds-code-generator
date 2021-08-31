@@ -12,7 +12,7 @@ app.getJson('/code', async (req, res) => {
   if (!code || typeof code !== 'string') {
     throw new JsonErrorResponse({ error: 'Missing code' }, { statusCode: 501 });
   }
-  const url = await generateCoupon(code, false);
+  const url = await generateCoupon(code, true);
   res.redirect(url);
   return { url };
 });
