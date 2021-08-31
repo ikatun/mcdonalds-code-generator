@@ -1,0 +1,30 @@
+{
+  "name": "anketa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf build && tsc",
+    "start": "tsc-watch --onSuccess 'node build'",
+    ""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-with-json": "0.0.6",
+    "puppeteer": "^10.2.0",
+    "puppeteer-element2selector": "0.0.3",
+    "reflect-metadata": "^0.1.13",
+    "source-map-support": "^0.5.19"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.7.8",
+    "@types/puppeteer": "^5.4.4",
+    "tsc-watch": "^4.5.0",
+    "typescript": "^4.4.2"
+  }
+}
