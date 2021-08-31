@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf build && tsc",
     "start": "tsc-watch --onSuccess 'node build'",
-    ""
+    "postinstall": "patch-package"
+
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-with-json": "0.0.6",
+    "patch-package": "^6.4.7",
     "puppeteer": "^10.2.0",
     "puppeteer-element2selector": "0.0.3",
     "reflect-metadata": "^0.1.13",

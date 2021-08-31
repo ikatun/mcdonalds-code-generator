@@ -1,0 +1,22 @@
+diff --git a/node_modules/puppeteer-element2selector/lib/bridge.js b/node_modules/puppeteer-element2selector/lib/bridge.js
+index 8a891f2..2d5c365 100644
+--- a/node_modules/puppeteer-element2selector/lib/bridge.js
++++ b/node_modules/puppeteer-element2selector/lib/bridge.js
+@@ -114,7 +114,7 @@ var finder = (function () {
+                 query = `${path[i].name} > ${query}`;
+             }
+             else {
+-                query = `${path[i].name} ${query}`;
++                query = `${path[i].name}  ${query}`;
+             }
+             node = path[i];
+         }
+@@ -152,7 +152,7 @@ var finder = (function () {
+     }
+     function classNames(input) {
+         const names = Array.from(input.classList)
+-            .filter(config.className);
++          .filter(config.className);
+         return names.map((name) => ({
+             name: "." + cssesc(name, { isIdentifier: true }),
+             penalty: 1
