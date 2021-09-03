@@ -15,6 +15,7 @@ app.getJson('/code', async (req, res) => {
   }
   try {
     const url = await generateCoupon(code, true);
+    console.log('url', url);
     res.redirect(url);
     return { url };
   } catch (e) {
